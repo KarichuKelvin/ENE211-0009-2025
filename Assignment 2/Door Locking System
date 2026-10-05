@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{  int correct_pin = 4234;
+   int userPin;
+   int count = 0;
+
+   while (count < 3)
+   {
+       printf("Please enter userPin");
+       scanf("%d", &userPin);
+
+       count++;
+
+       if (userPin == correct_pin)
+       {
+           printf("Access granted");
+           printf("Door unlocked");
+
+           break;
+       }
+       else if (userPin < 999)
+       {
+           printf("userPin must be at least 4 digits");
+       }
+       else
+       {
+           printf("Access denied");
+       }
+   }
+
+   if (count == 3 && userPin != correct_pin)
+   {
+       printf("Maximum attempts reached");
+       printf("Door locked");
+   }
+
+   return 0;
+}
