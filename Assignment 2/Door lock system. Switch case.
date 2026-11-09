@@ -1,0 +1,84 @@
+clude <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int correct_pin = 4234;
+    int userPin;
+    int count = 0;
+    int choice, newPin;
+    char username[30]="Kelvin";
+
+    while (count < 3)
+    {
+        printf("Please enter your pin");
+        scanf("%d", &userPin);
+
+        if(userPin == correct_pin);
+        {
+            printf("Access granted. Door unloacked");
+
+            do
+            {
+                printf("DEVICE MENU");
+                printf("1.Open Door");
+                printf("2.Change Username");
+                printf("3.Change Pin");
+                printf("4.Exit");
+
+                printf("Enter your choice");
+                scanf("%d", &choice);
+
+                switch(choice)
+                {
+                case 1:
+                    printf("Access granted. Door unlocked");
+                    break;
+
+                case 2:
+                    printf("Enter new username");
+                    scanf("%29s", username);
+                    printf("Username changed successfully");
+                    break;
+
+                case 3:
+                    printf("Enter new PIN");
+                    scanf("%d", &newPin);
+                    correct_pin = newPin;
+                    printf("PIN changed successfully");
+                    break;
+
+                case 4:
+                    printf("Exiting system");
+                    break;
+
+                default:
+                    printf("Invalid choice");
+
+                }
+        } while(choice != 4);
+
+        break;
+    }
+    if(userPin == correct_pin)
+    {
+        printf("Access granted");
+
+        break;
+    }
+    else
+    {
+        count++;
+        printf("Incorrect PIN");
+        printf("Remaining attempts %d", 3 -count);
+    }
+
+    if(count == 3)
+    {
+       printf("Access denied. System locked") ;
+    }
+
+  }
+
+    return 0;
+}
