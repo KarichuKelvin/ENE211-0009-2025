@@ -1,17 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Function declarations
 int login();
 void checkBalance();
 void deposit(float amount);
 void withdraw(float amount);
 
-// Global variables
 int pin = 1234;
 float balance = 10000;
 
-// Main function
 int main()
 {
     int choice;
