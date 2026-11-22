@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+#define BUFFER_SIZE 5
+
+int insertSample(int buffer[], int next, int value)
+{
+    buffer[next] = value;
+
+    next = (next + 1) % BUFFER_SIZE;
+
+    return next;
+}
+
+int printSamples(int buffer[], int next, int count)
+{
+    int i, start;
+
+    if(count == BUFFER_SIZE)
+    {
+        start = next;
+    }
+    else
+    {
+        start = 0;
+    }
+
+    printf("Stored samples in chronological order:");
+
+    for(i = 0; i < count; i++)
+    {
+        printf("%d", buffer[(start + i) % BUFFER_SIZE]);
+    }
+
+    return 0;
+}
+
+int main()
+{
+    int buffer[BUFFER_SIZE];
+    int next = 0, count = 0;
+    int n, i, value;
+
+    printf("Enter the number of samples:");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        printf("Enter sample:");
+        scanf("%d", &value);
+
+        next = insertSample(buffer, next, value);
+
+        if(count < BUFFER_SIZE)
+        {
+            count++;
+        }
+    }
+
+    printSamples(buffer, next, count);
+
+    return 0;
+}
